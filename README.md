@@ -64,8 +64,17 @@ Follow the steps below:
    - Temporal heatmap: Create a matrix of Hour of the day vs Day of the week to visualize usage peaks.
    - Interactive map (using Folium/Plotly): Display stations on a map of Lyon with point sizes proportional to station capacity.
 
+> The list of stations can be found here: [https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json](https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json)
 
-### Starter packages and tutorials
+```python 
+# sample of code to load the datasets
+import pandas as pd
+df_stations = pd.read_json('https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json')
+df_stations.head()
+```
+
+
+### Starter packs and tutorials
 
 * Pandas Dataframe:
    - https://www.datacamp.com/tutorial/pandas-tutorial-dataframe-python 
