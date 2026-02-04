@@ -67,7 +67,7 @@ Follow the steps below:
 > The list of stations can be found here: [https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json](https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json)
 
 ```python 
-# sample of code to load the datasets
+# sample of code to load the list of stations (with their GPS coordinates)
 import pandas as pd
 df_stations = pd.read_json('https://huggingface.co/datasets/lmoncla/lyon-velov-bike-sharing-dataset/resolve/main/stations-velov.json')
 df_stations.head()
