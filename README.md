@@ -49,6 +49,8 @@ The lab is structured into three main parts, each focusing on different aspects 
 * Date: February 10, 2026, 8:00 - 12:00
 * Room: Flash Gordon
 
+[See session2.md for details](session2.md)
+
 ## Session 3 - Regression & Forecasting
 
 * Date: February 11, 2026, 14:00 - 18:00
