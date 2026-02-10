@@ -51,7 +51,7 @@ Clustering is useless if we doesn't know what "Cluster 1" actually means. After 
 
 * **Cluster Centers**: Extract the cluster centers (the "average station" for each group) and analyze their feature values to understand the typical behavior of stations in each cluster.
 
-* **Cluster Visualization**: Create visualizations (e.g., bar charts) to compare the feature values across clusters.
+* **Cluster Visualization**: Create visualizations (e.g., bar charts, scatter plots) to compare the feature values across clusters.
 
 * **Radar Charts**: Create radar (spider) charts for each cluster to visualize their "DNA" (e.g., high morning rush, low weekend activity).
 
@@ -65,16 +65,18 @@ With "Day of week patterns" (7 features) plus "Commuter Dynamics" and "Volume," 
 Visualize the clusters in this reduced space. If the clusters are well-separated, it means your features capture meaningful patterns. Compare this visualization with the original feature space. Does PCA help in distinguishing the clusters more clearly? 
 * Explain what is PCA in your own terms and how it helps in this context.
 
-* Pro tip: PCA is not just a "preprocessing step" for clustering. It can also help you understand which features contribute most to the variance in your data, giving insights into what drives station behavior.
+> Pro tip: PCA is not just a "preprocessing step" for clustering. It can also help you understand which features contribute most to the variance in your data, giving insights into what drives station behavior.
 
 
 #### 6. Temporal Stability Analysis (The "Weather" Factor)
 
-* Instead of using weather as a feature for clustering, use it as a stress test.
+Instead of using weather as a feature for clustering, we will use it as a stress test.
+
 * **The Question**: Does a "Workhorse" station stay a "Workhorse" when it rains, or does its behavior collapse?
 * **Task**: Compare the cluster assignments on a sunny Monday vs. a rainy Monday. If 30% of stations change clusters, your logistics plan needs a "Rainy Day" contingency route.
+To quantify this, create a 'Stability Matrix' (Confusion Matrix) comparing Cluster IDs on Sunny days vs. Rainy days. Which clusters are 'weather-proof' and which ones vanish when it pours?"
 
-* Pro tip: Create a "Weather Condition" feature (e.g., "Sunny," "Rainy," "Snowy") and analyze how cluster memberships change under different weather conditions. This can reveal the robustness of your clusters and inform dynamic operational strategies.
+> Pro tip: Create a "Weather Condition" feature (e.g., "Sunny," "Rainy," "Snowy") and analyze how cluster memberships change under different weather conditions. This can reveal the robustness of your clusters and inform dynamic operational strategies.
 
 
 ### Resources & Documentation
