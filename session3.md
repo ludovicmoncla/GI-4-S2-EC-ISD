@@ -52,13 +52,43 @@ Traditionnaly, we use metrics like RMSE and MAE to quantify the average predicti
 * Performance Visualization: Plot a "Prediction vs. Reality" time-series graph for a specific station over a 7-day test period.
 
 
-**Once the 3 first steps are fully complete, more advanced steps will be released.**
 
 #### 4. Hyperparameter Tuning
 
+Default models (like a standard Random Forest) are rarely optimal for specific problems. To improve accuracy without changing the data, you must tune the model's internal settings (hyperparameters).
+
+* **Grid Search** or **Random Search**: Use `GridSearchCV` or `RandomizedSearchCV` from Scikit-Learn to test different combinations of parameters.
+
+    * For Random Forest: Try varying `n_estimators` (number of trees), `max_depth` (complexity of trees), and `min_samples_split`.
+
+* **Regularization**: If your model works perfectly on training data but fails on testing data (overfitting), increase constraints (e.g., limit `max_depth`).
+
+
 #### 5. Advanced Feature Engineering (Temporal "Memory")
 
+The current availability is useful, but the trend of that availability is even more powerful. In time-series forecasting, we often use Lag Features and Rolling Statistics to give the model "memory."
+
+* **Lag Features**: Include the number of bikes available 1 hour ago (t−1), 2 hours ago (t−2), and 24 hours ago (t−24). This helps the model understand if the station is currently emptying or filling up.
+Concept: If a station is empty now, but was full 1 hour ago, it is experiencing a "shock." If it was empty 1 hour ago too, it is in a stable state.
+
+* **Rolling Statistics**: Calculate the moving average or standard deviation of the last 3 hours.
+
+    * $RollingMean=\frac{1}{3} \sum_{i=1}^{3} y_{t-i}$
+
+
+> The Industrial Engineering perspective: This is analogous to "derivative control". You aren't just looking at the current error (current stock); you are looking at the rate of change to dampen the system response.
+
+
+
 #### 6. Multi-Step Forecasting
+
+Predicting T+1 (1 hour ahead) is good, but logistical operations (trucks) are slow. They need more lead time. A truck cannot teleport to a station instantly.
+
+* **Expand the Horizon**: Train a model to predict availability at T+3 or T+4 hours.
+
+* **Strategy**: Compare a Direct Strategy (training separate models for each future hour) vs. a Recursive Strategy (using the prediction of T+1 as an input to predict T+2).
+
+> The Industrial Engineering perspective: This defines your "Reaction Window." If your lead time to dispatch a truck is 2 hours, a T+1 prediction is useless for reactive maintenance—it's too late. You need a T+3 forecast to trigger an effective intervention.
 
 
 ### Resources & Documentation
