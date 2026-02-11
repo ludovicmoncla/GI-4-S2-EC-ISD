@@ -56,4 +56,4 @@ The lab is structured into three main parts, each focusing on different aspects 
 * Date: February 11, 2026, 14:00 - 18:00
 * Room: Flash Gordon
 
-
+[See session3.md for details](session3.md)
